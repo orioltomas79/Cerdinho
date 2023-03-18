@@ -29,6 +29,9 @@ namespace Cerdinho
             // Write the new list of apartments
             var output = JsonConvert.SerializeObject(listApartments);
             File.WriteAllText(apartmentsPath, output);
+
+            // Generate report
+            HtmlGenerator.GenerateReport(listApartments);
         }
 
         private static void MergeApartmentsList(List<Apartment> fromList, ICollection<Apartment> toList)
